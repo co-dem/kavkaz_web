@@ -1,3 +1,5 @@
+const ICON_MENU = '<svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>';
+const ICON_CLOSE = '<svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>';
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const header = document.querySelector('.site-header');
@@ -9,7 +11,7 @@ function setMenu(open) {
     'aria-label',
     open ? 'Закрыть меню' : 'Открыть меню'
   );
-  menuButton.textContent = open ? '×' : '☰';
+  menuButton.innerHTML = open ? ICON_CLOSE : ICON_MENU;
   header?.classList.toggle('menu-active', open);
   document.body.classList.toggle('menu-open', open);
 }
