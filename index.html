@@ -31,10 +31,10 @@
   </svg>
   <header class="site-header">
     <a class="logo" href="#top" aria-label="KAVKAZ — на главную">
-      KAVKAZ<span>МИНСК · ТАНЦЕВАЛЬНАЯ СТУДИЯ</span>
+      KAVKAZ<span>МИНСК · СТУДИЯ КАВКАЗСКИХ ТАНЦЕВ</span>
     </a>
-    <button class="menu-toggle" aria-label="Открыть меню" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
-    <nav class="nav">
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mainNav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    <nav class="nav" id="mainNav">
       <a href="#about">О нас</a>
       <a href="#teachers">Хореографы</a>
       <a href="#groups">Группы</a>
@@ -55,7 +55,7 @@
         <p class="eyebrow reveal">СТУДИЯ КАВКАЗСКИХ ТАНЦЕВ · МИНСК</p>
         <h1 class="hero-title reveal">KAVKAZ</h1>
         <p class="hero-lead reveal">
-          Больше, чем танцы.<br>
+          Больше, чем танцы.<br> 
           Это — наша культура, наша сила,<br>
           наша история.
         </p>
@@ -73,9 +73,65 @@
         <div class="photo photo-tall" data-photo="students"><span>ФОТО УЧЕНИКОВ СТУДИИ</span></div>
         <div class="about-copy">
           <p class="eyebrow">МЕСТО, ГДЕ РАСТУТ</p>
-          <h2>Характер<br>становится движением.</h2>
-          <p>Мы объединяем людей вокруг культуры Кавказа. Здесь важны не только техника и результат, но и путь: поддержка, дисциплина, дружба и радость от каждого нового шага.</p>
-          <p>После занятий ученики получают видео связок, чтобы возвращаться к движениям в удобное время. Мы радуемся успехам каждого и поддерживаем, когда что-то не получается с первого раза.</p>
+          <h2>Характер<br>становится <em>движением.</em></h2>
+
+          <div class="about-reader" data-about-reader>
+            <div class="about-pages" id="aboutPages" data-about-pages aria-live="polite" aria-atomic="true">
+              <div class="about-page" data-about-page>
+                <p>Мы — ансамбль кавказских танцев из Минска.<br>
+                  За этим коротким «мы» стоят люди, которые давно стали друг другу <em>близкими</em>.
+                  У нас танцуют не рядом, а <em>вместе</em> — и это чувствуется с первых секунд номера.</p>
+              </div>
+
+              <div class="about-page" data-about-page hidden>
+                <p>Кавказский танец не любит <em>фальши</em>. Один сбился — и рассыпался <em>весь рисунок</em>.
+                  Поэтому у нас нет «главных» и «второстепенных». Есть <em>команда</em>.
+                  Старшие помогают новичкам, новички быстро осваиваются и выходят <em>вперёд</em>.
+                  На репетициях мы спорим, смеёмся, повторяем движения по десять раз.
+                  Но именно там рождается то самое <em>чувство плеча</em>, которое потом видит зал.</p>
+              </div>
+
+              <div class="about-page" data-about-page hidden>
+                <p>Мы <em>быстро растём</em>. Кто-то ещё недавно делал первые шаги — а сегодня стоит
+                  <em>в центре городской сцены</em>. Движения становятся сложнее, темп быстрее,
+                  и нам интересно, что мы сможем <em>завтра</em>.</p>
+              </div>
+
+              <div class="about-page" data-about-page hidden>
+                <p>Нас часто приглашают на фестивали по всей Беларуси. А с конкурсов народного танца
+                  мы привозим <em>победы</em> и <em>Гран-При</em>. Дипломов много, они висят в зале.
+                  Но теплее всего — видеть, как зал <em>ждёт нас</em> и встречает <em>по-настоящему</em>.</p>
+              </div>
+
+              <div class="about-page" data-about-page hidden>
+                <p>Хотите увидеть это <em>вживую</em> — приходите на выступление. А если танцуете сами —
+                  заглядывайте к нам в зал. Мы всегда рады новым людям в нашей большой
+                  <em>танцующей семье</em>.</p>
+                <p class="about-signature">© Танцоры ансамбля KAVKAZ</p>
+              </div>
+            </div>
+
+            <div class="about-controls" data-about-controls hidden>
+              <span class="about-progress" data-about-progress aria-live="polite">01 / 05</span>
+              <div class="about-actions">
+                <button class="about-control about-prev" data-about-prev type="button"
+                        aria-label="Предыдущий фрагмент" hidden>
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg>
+                  <span>Назад</span>
+                </button>
+                <button class="about-control about-next" data-about-next type="button"
+                        aria-label="Следующий фрагмент">
+                  <span>Далее</span>
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+                </button>
+                <button class="about-control about-expand" data-about-expand type="button"
+                        aria-expanded="false" aria-controls="aboutPages">
+                  Читать далее
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div class="stats">
             <div><b>6+</b><span>направлений танца</span></div>
             <div><b>3</b><span>возрастные ступени</span></div>
@@ -94,7 +150,7 @@
         <p>Внимание к деталям, характер и бережное отношение к каждому ученику.</p>
       </div>
       <div class="teacher-grid">
-        <button class="teacher-card" data-modal="teacher-1">
+        <button class="teacher-card" type="button" data-modal="teacher-1" aria-haspopup="dialog" aria-controls="teacherDialog">
           <div class="photo teacher-photo" data-photo="teacher1"><span>ПОРТРЕТ ХОРЕОГРАФА</span></div>
           <div class="teacher-meta">
             <div>
@@ -104,7 +160,7 @@
             <b><svg class="icon" aria-hidden="true"><use href="#i-arrow-ne"/></svg></b>
           </div>
         </button>
-        <button class="teacher-card" data-modal="teacher-2">
+        <button class="teacher-card" type="button" data-modal="teacher-2" aria-haspopup="dialog" aria-controls="teacherDialog">
           <div class="photo teacher-photo" data-photo="teacher2"><span>ПОРТРЕТ ХОРЕОГРАФА</span></div>
           <div class="teacher-meta">
             <div>
@@ -114,7 +170,7 @@
             <b><svg class="icon" aria-hidden="true"><use href="#i-arrow-ne"/></svg></b>
           </div>
         </button>
-        <button class="teacher-card" data-modal="teacher-3">
+        <button class="teacher-card" type="button" data-modal="teacher-3" aria-haspopup="dialog" aria-controls="teacherDialog">
           <div class="photo teacher-photo" data-photo="teacher3"><span>ПОРТРЕТ ХОРЕОГРАФА</span></div>
           <div class="teacher-meta">
             <div>
@@ -140,7 +196,6 @@
             <li>Начинающие</li>
             <li>Продолжающие</li>
             <li>Продвинутые</li>
-            <li>Выступающие</li>
           </ol>
         </article>
         <article class="group-card">
@@ -151,7 +206,6 @@
             <li>Начинающие</li>
             <li>Продолжающие</li>
             <li>Продвинутые</li>
-            <li>Выступающие</li>
           </ol>
         </article>
         <div class="schedule-card">
@@ -190,17 +244,13 @@
           <p>Общие цели, взаимная поддержка и рост рядом с сильными танцорами.</p>
         </div>
       </div>
-      <div class="ensemble-teachers">
-        <span>ПРЕПОДАВАТЕЛИ АНСАМБЛЯ</span>
-        <b>Портреты и имена преподавателей добавляются здесь</b>
-      </div>
     </section>
 
     <section class="show section light" id="show">
       <div class="section-index">05 / ШОУ-ГРУППА</div>
       <div class="show-grid">
         <div>
-          <h2>ЭМОЦИИ,<br>КОТОРЫЕ<br><em>ЗАПОЛНЯЮТ ЗАЛ.</em></h2>
+          <h2>ЭМОЦИИ, КОТОРЫЕ<br><em>ЗАПОЛНЯЮТ ЗАЛ.</em></h2>
           <p>Профессиональные коммерческие выступления, яркие постановки и энергия Кавказа — для событий, которые должны запомниться.</p>
           <a class="button" href="https://www.instagram.com/kavkaz.by?srtk=MXB5czNtbGk2b3BkMA==" target="_blank" rel="noreferrer">Пригласить шоу-группу<svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-ne"/></svg></a>
         </div>
@@ -212,14 +262,13 @@
       <div class="testimonials">
         <div>
           <span class="eyebrow">ОТЗЫВЫ</span>
-          <p class="quote" id="quote">«Профессионализм, энергия и эмоции, которые остаются с тобой»</p>
+          <p class="quote" id="quote" aria-live="polite" aria-atomic="true">«Профессионализм, энергия и эмоции, которые остаются с тобой»</p>
           <div class="carousel-controls">
             <button id="prevQuote" aria-label="Предыдущий отзыв"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
             <span id="quoteCount">01 / 03</span>
             <button id="nextQuote" aria-label="Следующий отзыв"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
           </div>
         </div>
-        <p class="hint">Замените демонстрационные отзывы на реальные перед публикацией.</p>
       </div>
     </section>
 
@@ -231,11 +280,11 @@
         </div>
         <p>Не просто смотреть — почувствовать атмосферу.</p>
       </div>
-      <div class="gallery-tabs" role="tablist">
-        <button class="active" data-filter="ensemble">Ансамбль</button>
-        <button data-filter="children">Детская группа</button>
-        <button data-filter="adults">Взрослая группа</button>
-        <button data-filter="all">Общее</button>
+      <div class="gallery-tabs" role="group" aria-label="Фильтр фотографий галереи">
+        <button type="button" class="active" data-filter="ensemble" aria-pressed="true" aria-controls="galleryTrack">Ансамбль</button>
+        <button type="button" data-filter="children" aria-pressed="false" aria-controls="galleryTrack">Детская группа</button>
+        <button type="button" data-filter="adults" aria-pressed="false" aria-controls="galleryTrack">Взрослая группа</button>
+        <button type="button" data-filter="all" aria-pressed="false" aria-controls="galleryTrack">Общее</button>
       </div>
       <div class="gallery-track" id="galleryTrack">
         <div class="photo gallery-photo" data-category="ensemble" data-photo="gallery1"><span>АНСАМБЛЬ</span></div>
@@ -243,7 +292,6 @@
         <div class="photo gallery-photo" data-category="adults" data-photo="gallery3"><span>ВЗРОСЛАЯ ГРУППА</span></div>
         <div class="photo gallery-photo" data-category="all" data-photo="gallery4"><span>ОБЩИЕ МОМЕНТЫ</span></div>
       </div>
-      <p class="hint">Листайте галерею свайпом на телефоне или прокруткой.</p>
     </section>
 
     <section class="faq section light" id="faq">
@@ -284,17 +332,17 @@
         </div>
       </div>
       <footer>
-        <a class="logo" href="#top">KAVKAZ<span>МИНСК · ТАНЦЕВАЛЬНАЯ СТУДИЯ</span></a>
+        <a class="logo" href="#top">KAVKAZ<span>МИНСК · СТУДИЯ КАВКАЗСКИХ ТАНЦЕВ</span></a>
         <span>© <span id="year"></span> KAVKAZ</span>
         <a href="#top">НАВЕРХ <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
       </footer>
     </section>
   </main>
 
-  <dialog id="teacherDialog">
-    <button class="dialog-close" aria-label="Закрыть"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <dialog id="teacherDialog" aria-labelledby="dialogName" aria-describedby="dialogBio">
+    <button type="button" class="dialog-close" aria-label="Закрыть"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
     <div class="teacher-dialog-layout">
-      <div class="photo dialog-photo" id="dialogPhoto" data-photo="teacher1"><span>ФОТО ПРЕПОДАВАТЕЛЯ</span></div>
+      <div class="photo dialog-photo" id="dialogPhoto" data-photo="teacher1" aria-hidden="true"><span>ФОТО ПРЕПОДАВАТЕЛЯ</span></div>
       <div class="teacher-dialog-copy">
         <p class="eyebrow">ХОРЕОГРАФ KAVKAZ</p>
         <h2 id="dialogName">Имя преподавателя</h2>
