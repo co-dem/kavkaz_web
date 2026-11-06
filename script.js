@@ -1,164 +1,383 @@
-const ICON_MENU = '<svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>';
-const ICON_CLOSE = '<svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>';
+'use strict';
+
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const header = document.querySelector('.site-header');
+const desktopMedia = window.matchMedia('(min-width: 761px)');
 
-function setMenu(open) {
-  nav.classList.toggle('open', open);
-  menuButton.setAttribute('aria-expanded', String(open));
-  menuButton.setAttribute(
-    'aria-label',
-    open ? 'Закрыть меню' : 'Открыть меню'
-  );
-  menuButton.innerHTML = open ? ICON_CLOSE : ICON_MENU;
-  header?.classList.toggle('menu-active', open);
-  document.body.classList.toggle('menu-open', open);
+const ICON_MENU = '<svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg>';
+const ICON_CLOSE = '<svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg>';
+
+function setMenu(open, { restoreFocus = false } = {}) {
+    if (!menuButton || !nav) return;
+
+    const isOpen = Boolean(open);
+
+    nav.classList.toggle('open', isOpen);
+    header?.classList.toggle('menu-active', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute(
+        'aria-label',
+        isOpen ? 'Закрыть меню' : 'Открыть меню'
+    );
+    menuButton.innerHTML = isOpen ? ICON_CLOSE : ICON_MENU;
+
+    if (!isOpen && restoreFocus) {
+        menuButton.focus({ preventScroll: true });
+    }
 }
 
-menuButton?.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
-nav?.querySelectorAll('a').forEach((a) =>
-  a.addEventListener('click', () => setMenu(false))
-);
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && nav?.classList.contains('open')) setMenu(false);
+menuButton?.addEventListener('click', () => {
+    const isOpen = nav?.classList.contains('open') ?? false;
+    setMenu(!isOpen);
 });
 
-document.querySelector('#year').textContent = new Date().getFullYear();
+nav?.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href^="#"]');
 
-// Scroll reveal for below-the-fold elements
+    if (link) {
+        setMenu(false);
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && nav?.classList.contains('open')) {
+        setMenu(false, { restoreFocus: true });
+    }
+});
+
+// Закрываем мобильное меню при переходе на десктопную ширину.
+desktopMedia.addEventListener?.('change', (event) => {
+    if (event.matches) {
+        setMenu(false);
+    }
+});
+
+const yearElement = document.querySelector('#year');
+
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
+
+const photoMap = {
+    students: './assets/ensemble/ensemble_all.jpg',
+
+    teacher1: './assets/teachers/davud.PNG',
+    teacher2: './assets/teachers/ali.PNG',
+    teacher3: './assets/teachers/kseniya.png',
+
+    teacher1Detail: './assets/teachers/davud2.JPG',
+    teacher2Detail: './assets/teachers/ali2.JPG',
+    teacher3Detail: './assets/teachers/ksenia2.jpg',
+
+    ensemble: './assets/ensemble/duo.png',
+
+    show1: './assets/show/gr1.JPG',
+    show2: './assets/show/gr2.JPG',
+
+    gallery1: './assets/gallery/ph1.JPG',
+    gallery2: './assets/gallery/ph2.PNG',
+    gallery3: './assets/gallery/ph3.JPG',
+    gallery4: './assets/gallery/ph4.JPG'
+};
+
+function applyPhoto(element, photoKey) {
+    const imagePath = photoMap[photoKey];
+
+    if (!element || !imagePath) return;
+
+    element.style.backgroundImage =
+        `linear-gradient(0deg, rgba(0, 0, 0, .18), rgba(0, 0, 0, .05)), url("${imagePath}")`;
+
+    element.classList.add('has-image');
+}
+
+document.querySelectorAll('[data-photo]').forEach((element) => {
+    applyPhoto(element, element.dataset.photo);
+});
+
+
 const revealTargets = document.querySelectorAll(
-  '.section-index,.about-copy,.teacher-card,.group-card,.schedule-card,.ensemble-bottom>div,.show-grid,.gallery-photo,.faq-list details,.social-list a'
+    '.section-index, .about-copy, .teacher-card, .group-card, ' +
+    '.schedule-card, .ensemble-bottom > div, .show-grid, ' +
+    '.gallery-photo, .faq-list details, .social-list a'
 );
 
 if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(
-    (entries) =>
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      }),
-    { threshold: 0.12 }
-  );
-  revealTargets.forEach((el) => observer.observe(el));
+    const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    currentObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.12 }
+    );
+
+    revealTargets.forEach((element) => {
+        observer.observe(element);
+    });
+} else {
+    revealTargets.forEach((element) => {
+        element.classList.add('in-view');
+    });
 }
 
-const bios = {
-  'teacher-1': {
-    name: 'Давуд Закирзаде',
-    bio: 'Главный хореограф студии KAVKAZ. Здесь можно разместить историю, танцевальный опыт, направления и личный подход преподавателя.',
-  },
-  'teacher-2': {
-    name: 'Али Картоев',
-    bio: 'Хореограф ансамбля. Добавьте информацию о направлениях, опыте, достижениях и том, как преподаватель поддерживает учеников.',
-  },
-  'teacher-3': {
-    name: 'Ксения Клименкова',
-    bio: 'Хореограф ансамбля. Добавьте биографию, специализацию и несколько фактов, которые помогут ученикам познакомиться с преподавателем.',
-  },
+const aboutReader = document.querySelector('[data-about-reader]');
+
+if (aboutReader) {
+    const aboutPages = Array.from(
+        aboutReader.querySelectorAll('[data-about-page]')
+    );
+    const aboutControls = aboutReader.querySelector('[data-about-controls]');
+    const aboutProgress = aboutReader.querySelector('[data-about-progress]');
+    const aboutPrev = aboutReader.querySelector('[data-about-prev]');
+    const aboutNext = aboutReader.querySelector('[data-about-next]');
+    const aboutExpand = aboutReader.querySelector('[data-about-expand]');
+    const aboutDesktopMedia = window.matchMedia('(min-width: 761px)');
+
+    let activeAboutPage = 0;
+    let aboutExpanded = false;
+
+    function renderAboutReader() {
+        const isDesktop = aboutDesktopMedia.matches;
+        const lastPage = aboutPages.length - 1;
+
+        aboutPages.forEach((page, index) => {
+            const isVisible = isDesktop
+                ? index === activeAboutPage
+                : index === 0 || aboutExpanded;
+
+            page.hidden = !isVisible;
+        });
+
+        if (aboutProgress) {
+            const current = String(activeAboutPage + 1).padStart(2, '0');
+            const total = String(aboutPages.length).padStart(2, '0');
+
+            aboutProgress.textContent = isDesktop
+                ? `${current} / ${total}`
+                : aboutExpanded ? 'ПОЛНЫЙ ТЕКСТ' : '01 / 05';
+        }
+
+        if (aboutPrev) {
+            aboutPrev.hidden = !isDesktop || activeAboutPage === 0;
+        }
+
+        if (aboutNext) {
+            aboutNext.hidden = !isDesktop || activeAboutPage === lastPage;
+        }
+
+        if (aboutExpand) {
+            aboutExpand.hidden = isDesktop;
+            aboutExpand.textContent = aboutExpanded ? 'Свернуть' : 'Читать далее';
+            aboutExpand.setAttribute('aria-expanded', String(aboutExpanded));
+        }
+    }
+
+    function moveAboutPage(direction) {
+        const nextPage = activeAboutPage + direction;
+
+        if (nextPage < 0 || nextPage >= aboutPages.length) return;
+
+        activeAboutPage = nextPage;
+        renderAboutReader();
+    }
+
+    aboutNext?.addEventListener('click', () => moveAboutPage(1));
+    aboutPrev?.addEventListener('click', () => moveAboutPage(-1));
+
+    aboutExpand?.addEventListener('click', () => {
+        aboutExpanded = !aboutExpanded;
+        renderAboutReader();
+    });
+
+    aboutControls.hidden = false;
+    aboutReader.classList.add('is-enhanced');
+    renderAboutReader();
+
+    aboutDesktopMedia.addEventListener?.('change', () => {
+        activeAboutPage = 0;
+        aboutExpanded = false;
+        renderAboutReader();
+    });
+}
+
+const teachers = {
+    'teacher-1': {
+        name: 'Давуд Закирзаде',
+        bio: 'Главный хореограф студии KAVKAZ. Здесь можно разместить историю, танцевальный опыт, направления и личный подход преподавателя.',
+        photo: 'teacher1Detail'
+    },
+
+    'teacher-2': {
+        name: 'Али Картоев',
+        bio: 'Кавказский танец для мужчины — это не просто движения. Это характер. Умение держать спину, чувствовать ритм и выглядеть так, чтобы это запомнили. На занятиях мы поставим осанку, отработаем технику рук и ног и научимся двигаться так, чтобы в каждом жесте читалась сила и уверенность. Приходи — и ты почувствуешь, что значит танцевать по-мужски.',
+        photo: 'teacher2Detail'
+    },
+
+    'teacher-3': {
+        name: 'Ксения Клименкова',
+        bio: 'Женская партия в кавказском танце — это история о невероятной грации, гордости и женской силе, это эталон благородства и эстетики, где каждая деталь раскрывает твою внутреннюю женственность. Мы начнем с самых азов: поставим осанку, проработаем пластику рук и научимся чувствовать этот мощный ритм. Приходи, и я научу тебя двигаться так, будто ты не касаешься земли!',
+        photo: 'teacher3Detail'
+    }
 };
 
 const dialog = document.querySelector('#teacherDialog');
-const teacherDetailPhotos = {
-  'teacher-1': 'teacher1Detail',
-  'teacher-2': 'teacher2Detail',
-  'teacher-3': 'teacher3Detail',
-};
+const dialogName = document.querySelector('#dialogName');
+const dialogBio = document.querySelector('#dialogBio');
+const dialogPhoto = document.querySelector('#dialogPhoto');
+const dialogClose = document.querySelector('.dialog-close');
+const dialogCta = document.querySelector('#dialogCta');
 
-document.querySelectorAll('[data-modal]').forEach((card) =>
-  card.addEventListener('click', () => {
-    const data = bios[card.dataset.modal];
-    if (!data) return;
+let lastFocusedTeacher = null;
 
-    document.querySelector('#dialogName').textContent = data.name;
-    document.querySelector('#dialogBio').textContent = data.bio;
+function openTeacherDialog(card) {
+    if (!dialog || !dialogName || !dialogBio || !dialogPhoto) return;
+    if (dialog.open) return;
 
-    const photo = document.querySelector('#dialogPhoto');
-    const photoKey = teacherDetailPhotos[card.dataset.modal] || 'teacher1Detail';
+    const teacherId = card.dataset.modal;
+    const teacher = teachers[teacherId];
 
-    photo.dataset.photo = photoKey;
-    photo.style.backgroundImage = '';
-    photo.classList.remove('has-image');
+    if (!teacher) return;
 
-    const label = photo.querySelector('span');
-    if (label) label.textContent = data.name.toUpperCase();
+    lastFocusedTeacher = card;
 
-    const imagePath = photoMap[photoKey];
-    if (imagePath) {
-      photo.style.backgroundImage = `linear-gradient(0deg,rgba(0,0,0,.18),rgba(0,0,0,.05)),url("${imagePath}")`;
-      photo.classList.add('has-image');
+    dialogName.textContent = teacher.name;
+    dialogBio.textContent = teacher.bio;
+
+    const label = dialogPhoto.querySelector('span');
+
+    if (label) {
+        label.textContent = teacher.name.toUpperCase();
     }
 
+    dialogPhoto.style.backgroundImage = '';
+    dialogPhoto.classList.remove('has-image');
+    dialogPhoto.dataset.photo = teacher.photo;
+
+    applyPhoto(dialogPhoto, teacher.photo);
+
     dialog.showModal();
-  })
-);
+}
 
-document.querySelector('.dialog-close')?.addEventListener('click', () => dialog.close());
-
-dialog?.addEventListener('click', (e) => {
-  if (e.target === dialog) dialog.close();
+document.querySelectorAll('[data-modal]').forEach((card) => {
+    card.addEventListener('click', () => {
+        openTeacherDialog(card);
+    });
 });
 
-document.querySelector('#dialogCta')?.addEventListener('click', () => dialog.close());
+function closeTeacherDialog() {
+    if (dialog?.open) {
+        dialog.close();
+    }
+}
+
+dialogClose?.addEventListener('click', closeTeacherDialog);
+
+// Закрытие по нажатию на затемнённую область вокруг окна.
+dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) {
+        closeTeacherDialog();
+    }
+});
+
+// Возвращаем фокус на карточку, с которой открыли окно.
+dialog?.addEventListener('close', () => {
+    if (lastFocusedTeacher?.isConnected) {
+        lastFocusedTeacher.focus({ preventScroll: true });
+    }
+
+    lastFocusedTeacher = null;
+});
+
+// Закрываем окно при переходе к контактам.
+dialogCta?.addEventListener('click', () => {
+    closeTeacherDialog();
+});
+
 
 const quotes = [
-  '«Профессионализм, энергия и эмоции, которые остаются с тобой»',
-  '«Команда, в которой поддерживают и помогают расти»',
-  '«Выступление, которое превращает обычный вечер в событие»',
+    '«Профессионализм, энергия и эмоции, которые остаются с тобой»',
+    '«Команда, в которой поддерживают и помогают расти»',
+    '«Выступление, которое превращает обычный вечер в событие»'
 ];
+
 let quoteIndex = 0;
 
+const quoteElement = document.querySelector('#quote');
+const quoteCountElement = document.querySelector('#quoteCount');
+
 function renderQuote() {
-  document.querySelector('#quote').textContent = quotes[quoteIndex];
-  document.querySelector('#quoteCount').textContent =
-    `0${quoteIndex + 1} / 0${quotes.length}`;
+    if (!quotes.length) return;
+
+    if (quoteElement) {
+        quoteElement.textContent = quotes[quoteIndex];
+    }
+
+    if (quoteCountElement) {
+        const current = String(quoteIndex + 1).padStart(2, '0');
+        const total = String(quotes.length).padStart(2, '0');
+
+        quoteCountElement.textContent = `${current} / ${total}`;
+    }
 }
 
 document.querySelector('#prevQuote')?.addEventListener('click', () => {
-  quoteIndex = (quoteIndex + quotes.length - 1) % quotes.length;
-  renderQuote();
+    quoteIndex = (quoteIndex - 1 + quotes.length) % quotes.length;
+    renderQuote();
 });
 
 document.querySelector('#nextQuote')?.addEventListener('click', () => {
-  quoteIndex = (quoteIndex + 1) % quotes.length;
-  renderQuote();
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+    renderQuote();
 });
 
-document.querySelectorAll('.gallery-tabs button').forEach((btn) =>
-  btn.addEventListener('click', () => {
-    document
-      .querySelectorAll('.gallery-tabs button')
-      .forEach((b) => b.classList.remove('active'));
-    btn.classList.add('active');
+renderQuote();
 
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.gallery-photo').forEach((photo) => {
-      photo.hidden = filter !== 'all' && photo.dataset.category !== filter;
+
+/* ФИЛЬТР ГАЛЕРЕИ */
+
+const galleryTabs = document.querySelector('.gallery-tabs');
+const galleryButtons =
+    galleryTabs?.querySelectorAll('button[data-filter]') ?? [];
+const galleryPhotos = document.querySelectorAll('.gallery-photo');
+
+function setGalleryFilter(activeButton) {
+    const filter = activeButton.dataset.filter;
+
+    galleryButtons.forEach((button) => {
+        const isActive = button === activeButton;
+
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
     });
-  })
+
+    galleryPhotos.forEach((photo) => {
+        const isVisible =
+            filter === 'all' || photo.dataset.category === filter;
+
+        photo.hidden = !isVisible;
+
+        photo.style.display = isVisible ? '' : 'none';
+    });
+}
+
+galleryButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        setGalleryFilter(button);
+    });
+});
+
+// Синхронизируем начальное состояние фильтра и карточек галереи.
+const initialGalleryButton = galleryTabs?.querySelector(
+    'button[data-filter].active'
 );
 
-// Photo replacement helper: put images into assets/ and add their relative path to this map.
-const photoMap = {
-  // Основные фотографии на странице:
-//   hero:'./assets/ensemble/ensemble_all2.jpg', 
-  students:'./assets/ensemble/ensemble_all.jpg',
-  teacher1:'./assets/teachers/davud.PNG', teacher2:'./assets/teachers/ali.JPG', teacher3:'./assets/teachers/kseniya.png',
-  // Отдельные фотографии, которые показываются только при открытии карточки преподавателя:
-  teacher1Detail: './assets/teachers/davud2.png',
-  teacher2Detail: 'assets/teacher-2-detail.jpg',
-  teacher3Detail: './assets/teachers/ksenia2.jpg',
-  ensemble:'./assets/ensemble/duo.jpg', show1:'./assets/show/gr1.JPG', show2:'./assets/show/gr2.JPG',
-  gallery1:'./assets/gallery/ph1.JPG', gallery2:'./assets/gallery/ph2.PNG', gallery3:'./assets/gallery/ph3.JPG', gallery4:'./assets/gallery/ph4.JPG'
-};
-
-document.querySelectorAll('[data-photo]').forEach((el) => {
-  const key = el.dataset.photo;
-  if (photoMap[key]) {
-    el.style.backgroundImage = `linear-gradient(0deg,rgba(0,0,0,.18),rgba(0,0,0,.05)),url("${photoMap[key]}")`;
-    el.classList.add('has-image');
-  }
-});
+if (initialGalleryButton) {
+    setGalleryFilter(initialGalleryButton);
+}
