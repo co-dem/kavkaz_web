@@ -187,33 +187,78 @@
     <section class="groups section light" id="groups">
       <div class="section-index">03 / НАПРАВЛЕНИЯ И ГРУППЫ</div>
       <h2>Твой ритм.<br><em>Твой уровень.</em></h2>
+      <p class="groups-intro">Выберите свою группу и подходящий формат занятий. В каждой — движение, музыкальность и поддержка команды.</p>
+      <div class="groups-ornament" aria-hidden="true"><span></span><i></i><span></span></div>
+
       <div class="group-grid">
         <article class="group-card">
-          <div class="group-top"><span>01 / ДЕТИ</span><span class="group-symbol"><svg class="icon" aria-hidden="true"><use href="#i-asterisk"/></svg></span></div>
+          <div class="group-top">
+            <span>01 / ДЕТИ</span>
+            <span class="group-symbol"><svg class="icon" aria-hidden="true"><use href="#i-asterisk"/></svg></span>
+          </div>
           <h3>Детская группа</h3>
-          <p>Растём через движение, музыкальность и командный дух.</p>
-          <ol>
-            <li>Начинающие</li>
-            <li>Продолжающие</li>
-            <li>Продвинутые</li>
-          </ol>
+          <p class="group-description">Для танцоров младше 18 лет. Растём через движение, музыкальность и командный дух.</p>
+
+          <div class="group-levels">
+            <span class="group-detail-label">УРОВНИ ПОДГОТОВКИ</span>
+            <ol>
+              <li>Начинающие</li>
+              <li>Продолжающие</li>
+              <li>Продвинутые</li>
+            </ol>
+          </div>
+
+          <div class="group-pricing">
+            <div class="group-pricing-title">
+              <span class="group-detail-label">АБОНЕМЕНТЫ</span>
+              <span class="group-price-caption">Стоимость занятий</span>
+            </div>
+            <ul class="group-price-list" aria-label="Стоимость занятий для детей">
+              <li><span>4 занятия</span><strong>95 руб.</strong></li>
+              <li><span>6 занятий</span><strong>125 руб.</strong></li>
+              <li><span>8 занятий</span><strong>145 руб.</strong></li>
+              <li><span>12 занятий</span><strong>195 руб.</strong></li>
+            </ul>
+            <div class="group-single-price"><span>Разовое занятие</span><strong>25 руб.</strong></div>
+          </div>
         </article>
+
         <article class="group-card">
-          <div class="group-top"><span>02 / ВЗРОСЛЫЕ</span><span class="group-symbol"><svg class="icon" aria-hidden="true"><use href="#i-asterisk"/></svg></span></div>
+          <div class="group-top">
+            <span>02 / ВЗРОСЛЫЕ</span>
+            <span class="group-symbol"><svg class="icon" aria-hidden="true"><use href="#i-asterisk"/></svg></span>
+          </div>
           <h3>Взрослая группа</h3>
-          <p>От первых шагов до уверенного сценического исполнения.</p>
-          <ol>
-            <li>Начинающие</li>
-            <li>Продолжающие</li>
-            <li>Продвинутые</li>
-          </ol>
+          <p class="group-description">Для танцоров старше 18 лет. От первых шагов до уверенного сценического исполнения.</p>
+
+          <div class="group-levels">
+            <span class="group-detail-label">УРОВНИ ПОДГОТОВКИ</span>
+            <ol>
+              <li>Начинающие</li>
+              <li>Продолжающие</li>
+              <li>Продвинутые</li>
+            </ol>
+          </div>
+
+          <div class="group-pricing">
+            <div class="group-pricing-title">
+              <span class="group-detail-label">АБОНЕМЕНТЫ</span>
+              <span class="group-price-caption">Стоимость занятий</span>
+            </div>
+            <ul class="group-price-list" aria-label="Стоимость занятий для взрослых">
+              <li><span>4 занятия</span><strong>95 руб.</strong></li>
+              <li><span>6 занятий</span><strong>135 руб.</strong></li>
+              <li><span>8 занятий</span><strong>165 руб.</strong></li>
+              <li><span>12 занятий</span><strong>210 руб.</strong></li>
+            </ul>
+            <div class="group-single-price"><span>Разовое занятие</span><strong>25 руб.</strong></div>
+          </div>
         </article>
-        <div class="schedule-card">
-          <span class="eyebrow">РАСПИСАНИЕ И СТОИМОСТЬ</span>
-          <h3>Подберём группу<br>под твой уровень.</h3>
-          <p>Актуальные цены и расписание уточняйте у студии в Instagram.</p>
-          <a class="button button-light" href="https://www.instagram.com/kavkazstudio.by?dlrf=MWF3dnJsZG1sNmd0bQ==" target="_blank" rel="noreferrer">Написать в Instagram<svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-ne"/></svg></a>
-        </div>
+      </div>
+
+      <div class="groups-contact">
+        <p>Не уверены, какая группа подойдёт? Поможем определиться и ответим на вопросы.</p>
+        <a class="button" href="https://www.instagram.com/kavkazstudio.by?dlrf=MWF3dnJsZG1sNmd0bQ==" target="_blank" rel="noreferrer">Связаться со студией<svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-ne"/></svg></a>
       </div>
     </section>
 
@@ -271,6 +316,7 @@
         </div>
       </div>
     </section>
+    
 
     <section class="gallery section dark" id="gallery">
       <div class="section-head">
@@ -282,15 +328,37 @@
       </div>
       <div class="gallery-tabs" role="group" aria-label="Фильтр фотографий галереи">
         <button type="button" class="active" data-filter="ensemble" aria-pressed="true" aria-controls="galleryTrack">Ансамбль</button>
-        <button type="button" data-filter="children" aria-pressed="false" aria-controls="galleryTrack">Детская группа</button>
-        <button type="button" data-filter="adults" aria-pressed="false" aria-controls="galleryTrack">Взрослая группа</button>
-        <button type="button" data-filter="all" aria-pressed="false" aria-controls="galleryTrack">Общее</button>
+        <button type="button" data-filter="showgroup" aria-pressed="false" aria-controls="galleryTrack">Шоугруппа</button>
+        <button type="button" data-filter="school" aria-pressed="false" aria-controls="galleryTrack">Школа</button>
       </div>
       <div class="gallery-track" id="galleryTrack">
         <div class="photo gallery-photo" data-category="ensemble" data-photo="gallery1"><span>АНСАМБЛЬ</span></div>
-        <div class="photo gallery-photo" data-category="children" data-photo="gallery2"><span>ДЕТСКАЯ ГРУППА</span></div>
-        <div class="photo gallery-photo" data-category="adults" data-photo="gallery3"><span>ВЗРОСЛАЯ ГРУППА</span></div>
-        <div class="photo gallery-photo" data-category="all" data-photo="gallery4"><span>ОБЩИЕ МОМЕНТЫ</span></div>
+        <div class="photo gallery-photo" data-category="ensemble" data-photo="gallery2"><span>АНСАМБЛЬ</span></div>
+        <div class="photo gallery-photo" data-category="ensemble" data-photo="gallery3"><span>АНСАМБЛЬ</span></div>
+        <div class="photo gallery-photo" data-category="ensemble" data-photo="gallery4"><span>АНСАМБЛЬ</span></div>
+        <div class="photo gallery-photo" data-category="ensemble" data-photo="gallery5"><span>АНСАМБЛЬ</span></div>
+        <div class="photo gallery-photo" data-category="ensemble" data-photo="gallery6"><span>АНСАМБЛЬ</span></div>
+        <div class="photo gallery-photo" data-category="ensemble" data-photo="gallery7"><span>АНСАМБЛЬ</span></div>
+        <div class="photo gallery-photo" data-category="ensemble" data-photo="gallery8"><span>АНСАМБЛЬ</span></div>
+         
+        <div class="photo gallery-photo" data-category="showgroup" data-photo="gallery9"><span>ШОУГРУППА</span></div>
+        <div class="photo gallery-photo" data-category="showgroup" data-photo="gallery10"><span>ШОУГРУППА</span></div>
+        <div class="photo gallery-photo" data-category="showgroup" data-photo="gallery11"><span>ШОУГРУППА</span></div>
+        <div class="photo gallery-photo" data-category="showgroup" data-photo="gallery12"><span>ШОУГРУППА</span></div>
+        <div class="photo gallery-photo" data-category="showgroup" data-photo="gallery13"><span>ШОУГРУППА</span></div>
+        <div class="photo gallery-photo" data-category="showgroup" data-photo="gallery14"><span>ШОУГРУППА</span></div>
+        <div class="photo gallery-photo" data-category="showgroup" data-photo="gallery15"><span>ШОУГРУППА</span></div>
+        <div class="photo gallery-photo" data-category="showgroup" data-photo="gallery16"><span>ШОУГРУППА</span></div>
+        
+        <div class="photo gallery-photo" data-category="school" data-photo="gallery17"><span>ШКОЛА</span></div>
+        <div class="photo gallery-photo" data-category="school" data-photo="gallery18"><span>ШКОЛА</span></div>
+        <div class="photo gallery-photo" data-category="school" data-photo="gallery19"><span>ШКОЛА</span></div>
+        <div class="photo gallery-photo" data-category="school" data-photo="gallery20"><span>ШКОЛА</span></div>
+        <div class="photo gallery-photo" data-category="school" data-photo="gallery21"><span>ШКОЛА</span></div>
+        <div class="photo gallery-photo" data-category="school" data-photo="gallery22"><span>ШКОЛА</span></div>
+        <div class="photo gallery-photo" data-category="school" data-photo="gallery23"><span>ШКОЛА</span></div>
+        <div class="photo gallery-photo" data-category="school" data-photo="gallery24"><span>ШКОЛА</span></div>
+
       </div>
     </section>
 
@@ -309,7 +377,11 @@
           </details>
           <details>
             <summary>Как узнать расписание и стоимость?<span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
-            <p>Актуальные цены и расписание меняются. Напишите нам в Instagram — подскажем доступные группы.</p>
+            <p>Стоимость абонементов указана в прайсе выше. Напишите нам в Instagram, чтобы уточнить расписание и подобрать группу.</p>
+          </details>
+          <details>
+            <summary>Что мне надеть на тренировку?<span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></span></summary>
+            <p>Вам понадобится: удобный черный верх и черный низ, <i>девушки могут выбрать черную юбку в пол</i>. А на ноги балетки или джазовки.</p>
           </details>
         </div>
       </div>
@@ -331,11 +403,12 @@
           <a href="https://tiktok.com/@ensemble_caucasus?_r=1&_t=ZS-9B2XgDtm0eK" target="_blank" rel="noreferrer"><span>TIKTOK</span><b>Все проекты<svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-ne"/></svg></b></a>
         </div>
       </div>
-      <footer>
-        <a class="logo" href="#top">KAVKAZ<span>МИНСК · СТУДИЯ КАВКАЗСКИХ ТАНЦЕВ</span></a>
-        <span>© <span id="year"></span> KAVKAZ</span>
-        <a href="#top">НАВЕРХ <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
-      </footer>
+<footer>
+  <a class="logo" href="#top">KAVKAZ<span>МИНСК · СТУДИЯ КАВКАЗСКИХ ТАНЦЕВ</span></a>
+  <span>© <span id="year"></span> KAVKAZ</span>
+  <a class="made-by" href="https://t.me/c0dem" target="_blank" rel="noreferrer">made by c0dem</a>
+  <a href="#top">НАВЕРХ <svg class="icon icon-end" aria-hidden="true"><use href="#i-arrow-up"/></svg></a>
+</footer>
     </section>
   </main>
 
