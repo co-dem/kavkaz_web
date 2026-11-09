@@ -1,3 +1,4 @@
+
 :root {
     --ink: #11100f;
     --panel: #1b1918;
@@ -1320,29 +1321,19 @@ dialog#teacherDialog::backdrop {
     outline: none;
     box-shadow: none;
 }
-
+/* ===== MOBILE ===== */
 @media (max-width: 760px) {
     dialog#teacherDialog {
-        position: fixed;
-        inset: 0;
-        margin: auto;
-
-        width: calc(100vw - 28px);
+        width: calc(100% - 28px);
         max-width: 520px;
-        max-height: calc(100vh - 28px);
-        max-height: calc(100dvh - 28px);
-
+        max-height: 88dvh;
         padding: 64px 20px 26px;
         overflow-y: auto;
-        overscroll-behavior: contain;
-        -webkit-overflow-scrolling: touch;
     }
-
     .teacher-dialog-layout {
         grid-template-columns: 1fr;
         gap: 22px;
     }
-
     .dialog-photo {
         width: 100%;
         height: auto;
@@ -1350,11 +1341,9 @@ dialog#teacherDialog::backdrop {
         aspect-ratio: 3 / 2;
         background-position: center;
     }
-
     .teacher-dialog-copy h2 {
         font-size: 32px;
     }
-
     .dialog-close {
         top: 10px;
         right: 10px;
@@ -1362,7 +1351,6 @@ dialog#teacherDialog::backdrop {
         height: 42px;
     }
 }
-
 /* Увеличенное окно преподавателя на ПК */
 @media (min-width: 761px) {
     dialog#teacherDialog {
@@ -1391,7 +1379,10 @@ body:has(#teacherDialog[open]) {
 #teacherDialog {
     overscroll-behavior: contain;
 }
-
+/* ==========================================================
+   KAVKAZ — ОБНОВЛЁННАЯ СЕТКА, ТИПОГРАФИКА И АДАПТИВНОСТЬ
+   Этот блок переопределяет отдельные правила выше.
+========================================================== */
 :root {
     --content-width: 1240px;
     --section-space: clamp(76px, 8vw, 116px);
@@ -2511,4 +2502,613 @@ footer {
     .about-control {
         transition: none;
     }
+}
+
+
+
+
+/* Направления, группы и стоимость — единая композиция */
+.groups h2 {
+    margin-bottom: 14px;
+}
+.groups-intro {
+    max-width: 650px;
+    margin: 0 0 clamp(28px, 4vw, 46px);
+    color: #6e655d;
+    font-size: var(--reading-size, 17px);
+    line-height: var(--reading-leading, 1.8);
+}
+.group-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: clamp(16px, 2vw, 24px);
+}
+.group-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: clamp(24px, 3vw, 38px);
+    background: rgba(255, 255, 255, .48);
+    border: 1px solid rgba(35, 26, 21, .12);
+}
+.group-top {
+    align-items: center;
+    color: var(--burgundy);
+}
+.group-symbol {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid rgba(118, 21, 44, .2);
+    border-radius: 50%;
+    color: var(--burgundy);
+}
+.group-symbol .icon {
+    width: 18px;
+    height: 18px;
+}
+.group-card h3 {
+    margin: 22px 0 8px;
+    color: var(--ink);
+    font-size: clamp(25px, 2.4vw, 32px);
+    line-height: 1.2;
+    letter-spacing: -.045em;
+}
+.group-card .group-description {
+    min-height: 3.4em;
+    margin: 0;
+    color: #6e655d;
+    font-size: 14px;
+    line-height: 1.75;
+}
+.group-levels {
+    margin-top: 24px;
+}
+.group-detail-label {
+    display: block;
+    color: var(--burgundy);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .15em;
+}
+.group-levels ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: group-level;
+}
+.group-levels li {
+    min-width: 0;
+    padding: 10px 9px;
+    background: rgba(118, 21, 44, .055);
+    border: 1px solid rgba(118, 21, 44, .1);
+    color: #514740;
+    font-size: 11px;
+    line-height: 1.4;
+    text-align: center;
+    counter-increment: group-level;
+}
+.group-levels li::before {
+    content: "0" counter(group-level);
+    display: block;
+    margin: 0 0 4px;
+    color: var(--burgundy);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .1em;
+}
+.group-pricing {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(35, 26, 21, .16);
+}
+.group-pricing-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+.group-price-caption {
+    color: #8a8077;
+    font-size: 11px;
+}
+.group-price-list {
+    display: grid;
+    gap: 0;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.group-price-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 11px 2px;
+    border-top: 1px solid rgba(35, 26, 21, .1);
+    color: #514740;
+    font-size: 14px;
+    line-height: 1.45;
+}
+.group-price-list strong,
+.group-single-price strong {
+    flex: 0 0 auto;
+    color: var(--burgundy);
+    font-size: 16px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+.group-single-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 10px;
+    padding: 14px 16px;
+    background: rgba(118, 21, 44, .075);
+    border-left: 2px solid var(--burgundy);
+    color: #514740;
+    font-size: 13px;
+    line-height: 1.4;
+}
+.groups-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: clamp(24px, 3vw, 36px);
+    padding-top: 22px;
+    border-top: 1px solid rgba(35, 26, 21, .14);
+}
+.groups-contact p {
+    max-width: 560px;
+    margin: 0;
+    color: #6e655d;
+    font-size: 14px;
+    line-height: 1.7;
+}
+.groups-contact .button {
+    flex: 0 0 auto;
+}
+@media (max-width: 760px) {
+    .groups-intro {
+        margin-bottom: 26px;
+    }
+    .group-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+    .group-card {
+        padding: 24px 20px;
+    }
+    .group-card .group-description {
+        min-height: 0;
+    }
+    .group-levels ol {
+        gap: 6px;
+    }
+    .group-levels li {
+        padding: 9px 5px;
+        font-size: 10px;
+    }
+    .groups-contact {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+@media (max-width: 380px) {
+    .group-card {
+        padding: 22px 16px;
+    }
+    .group-levels ol {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .group-levels li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-align: left;
+    }
+    .group-levels li::before {
+        margin: 0;
+    }
+}
+
+
+/* KAVKAZ — кавказская эстетика: тонкая геометрия, мотивы резьбы и орнамента */
+.groups {
+    position: relative;
+    isolation: isolate;
+}
+.groups-ornament {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: min(210px, 48%);
+    height: 18px;
+    margin: -22px 0 34px auto;
+    color: var(--burgundy);
+    opacity: .72;
+}
+.groups-ornament span {
+    height: 1px;
+    flex: 1;
+    background: currentColor;
+    opacity: .45;
+}
+.groups-ornament i {
+    display: block;
+    width: 11px;
+    height: 11px;
+    flex: 0 0 11px;
+    border: 1px solid currentColor;
+    transform: rotate(45deg);
+    position: relative;
+}
+.groups-ornament i::before,
+.groups-ornament i::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: 1px solid currentColor;
+}
+.groups-ornament i::after {
+    inset: -5px;
+    opacity: .5;
+}
+.group-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(118, 21, 44, .22);
+    box-shadow: 0 12px 34px rgba(35, 26, 21, .035);
+}
+.group-card::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    width: 116px;
+    height: 116px;
+    opacity: .18;
+    background:
+        linear-gradient(45deg, transparent 46%, var(--burgundy) 47% 49%, transparent 50%) 0 0 / 22px 22px,
+        linear-gradient(-45deg, transparent 46%, var(--burgundy) 47% 49%, transparent 50%) 0 0 / 22px 22px;
+    mask-image: linear-gradient(135deg, #000 0%, transparent 76%);
+    pointer-events: none;
+}
+.group-card > * {
+    position: relative;
+    z-index: 1;
+}
+.group-card::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-top: 1px solid rgba(118, 21, 44, .38);
+    border-right: 1px solid rgba(118, 21, 44, .38);
+    pointer-events: none;
+}
+.group-top {
+    position: relative;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(118, 21, 44, .16);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .16em;
+}
+.group-symbol {
+    width: 42px;
+    height: 42px;
+    border-radius: 0;
+    transform: rotate(45deg);
+    background: rgba(118, 21, 44, .035);
+}
+.group-symbol .icon {
+    transform: rotate(-45deg);
+}
+.group-card h3 {
+    max-width: 85%;
+    letter-spacing: -.035em;
+}
+.group-levels {
+    position: relative;
+}
+.group-levels .group-detail-label::after {
+    content: "◇  ─  ◇";
+    margin-left: 10px;
+    color: rgba(118, 21, 44, .5);
+    font-size: 10px;
+    letter-spacing: .12em;
+}
+.group-levels li {
+    position: relative;
+    background: rgba(118, 21, 44, .035);
+    border: 1px solid rgba(118, 21, 44, .14);
+}
+.group-levels li::after {
+    content: "";
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 5px;
+    height: 5px;
+    border-right: 1px solid rgba(118, 21, 44, .38);
+    border-bottom: 1px solid rgba(118, 21, 44, .38);
+}
+.group-pricing {
+    border-top: 1px solid rgba(118, 21, 44, .22);
+    position: relative;
+}
+.group-pricing::before {
+    content: "✧";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    padding: 0 9px;
+    background: var(--cream);
+    color: var(--burgundy);
+    font-size: 14px;
+    transform: translateX(-50%);
+}
+.group-price-list li {
+    border-top-style: dotted;
+    border-top-color: rgba(35, 26, 21, .2);
+}
+.group-single-price {
+    background:
+        linear-gradient(135deg, rgba(118, 21, 44, .09), rgba(118, 21, 44, .035));
+    border-left-width: 3px;
+    outline: 1px solid rgba(118, 21, 44, .12);
+    outline-offset: -1px;
+}
+.groups-contact {
+    position: relative;
+}
+.groups-contact::before,
+.groups-contact::after {
+    content: "◇";
+    color: var(--burgundy);
+    opacity: .55;
+    font-size: 12px;
+}
+@media (max-width: 760px) {
+    .groups-ornament {
+        margin-top: -14px;
+        margin-bottom: 25px;
+    }
+    .group-card::before {
+        width: 90px;
+        height: 90px;
+        background-size: 18px 18px;
+    }
+    .groups-contact::before,
+    .groups-contact::after {
+        display: none;
+    }
+}
+
+
+/* Продолжение кавказской орнаментальной стилистики: «О нас», «Наставники», FAQ */
+/* О нас — тонкая рамка, геометрический мотив и спокойный бордовый акцент */
+.about {
+    position: relative;
+    isolation: isolate;
+}
+.about-grid > .photo-tall {
+    outline: 1px solid rgba(118, 21, 44, .28);
+    outline-offset: -12px;
+}
+.about-grid > .photo-tall::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    inset: 20px;
+    border: 1px solid rgba(255, 255, 255, .28);
+    pointer-events: none;
+}
+.about-copy {
+    position: relative;
+}
+.about-copy::before {
+    content: "◇  ✧  ◇";
+    display: block;
+    width: max-content;
+    margin: 0 0 22px auto;
+    color: var(--burgundy);
+    opacity: .62;
+    font-size: 13px;
+    letter-spacing: .28em;
+}
+.stats {
+    position: relative;
+    border-top-color: rgba(118, 21, 44, .24);
+}
+.stats div {
+    position: relative;
+}
+.stats div::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    margin-bottom: 3px;
+    border: 1px solid var(--burgundy);
+    transform: rotate(45deg);
+    opacity: .65;
+}
+.stats b {
+    color: var(--burgundy);
+}
+
+/* Наставники — орнаментальная рамка поверх тёмной фотоподложки */
+.teachers {
+    position: relative;
+    isolation: isolate;
+}
+.teachers .section-head {
+    position: relative;
+}
+.teachers .section-head::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -19px;
+    width: min(180px, 28%);
+    height: 9px;
+    opacity: .58;
+    background:
+        linear-gradient(135deg, transparent 42%, #c56b7b 43% 49%, transparent 50%) 0 0 / 12px 9px repeat-x;
+}
+.teacher-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(197, 107, 123, .28);
+    background: rgba(255, 255, 255, .018);
+}
+.teacher-card::before,
+.teacher-card::after {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    width: 26px;
+    height: 26px;
+    border-color: rgba(197, 107, 123, .8);
+    border-style: solid;
+    pointer-events: none;
+}
+.teacher-card::before {
+    top: 9px;
+    left: 9px;
+    border-width: 1px 0 0 1px;
+}
+.teacher-card::after {
+    right: 9px;
+    bottom: 9px;
+    border-width: 0 1px 1px 0;
+}
+.teacher-photo {
+    position: relative;
+    border: 0;
+}
+.teacher-photo::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(255, 255, 255, .22);
+    pointer-events: none;
+}
+.teacher-meta {
+    position: relative;
+    border-top: 1px solid rgba(197, 107, 123, .22);
+    padding: 20px 18px;
+}
+.teacher-meta::before {
+    content: "✧";
+    position: absolute;
+    top: -10px;
+    left: 18px;
+    padding: 0 8px;
+    color: #c56b7b;
+    background: #171413;
+    font-size: 13px;
+}
+.teacher-meta b {
+    color: #c56b7b;
+}
+
+/* FAQ — лёгкая геометрия в раскрывающихся строках */
+.faq {
+    position: relative;
+    isolation: isolate;
+}
+.faq-grid h2 {
+    position: relative;
+}
+.faq-grid h2::after {
+    content: "◇ ───── ◇";
+    display: block;
+    margin-top: 25px;
+    color: var(--burgundy);
+    opacity: .55;
+    font-size: 12px;
+    letter-spacing: .12em;
+}
+.faq-list details {
+    position: relative;
+    border-bottom-color: rgba(118, 21, 44, .2);
+}
+.faq-list details:first-child {
+    border-top: 1px solid rgba(118, 21, 44, .2);
+}
+.faq-list summary {
+    position: relative;
+    padding-right: 6px;
+}
+.faq-list summary span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border: 1px solid rgba(118, 21, 44, .28);
+    transform: rotate(45deg);
+}
+.faq-list summary span .icon {
+    transform: rotate(-45deg);
+}
+.faq-list details[open] summary span {
+    background: rgba(118, 21, 44, .08);
+    border-color: var(--burgundy);
+    transform: rotate(45deg);
+}
+.faq-list details p {
+    border-left: 1px solid rgba(118, 21, 44, .32);
+    margin: 0 0 20px 2px;
+    padding-left: 18px;
+}
+@media (max-width: 760px) {
+    .about-grid > .photo-tall {
+        outline-offset: -8px;
+    }
+    .about-grid > .photo-tall::after {
+        inset: 16px;
+    }
+    .about-copy::before {
+        margin-bottom: 14px;
+    }
+    .teachers .section-head::after {
+        width: 100px;
+    }
+    .teacher-card::before,
+    .teacher-card::after {
+        width: 20px;
+        height: 20px;
+    }
+    .faq-grid h2::after {
+        margin-top: 16px;
+    }
+}
+
+
+footer .made-by {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .1em;
+  opacity: .6;
+  transition: opacity .2s ease, color .2s ease;
+}
+footer .made-by:hover {
+  opacity: 1;
+  color: #d98c9b;
 }
