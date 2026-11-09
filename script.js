@@ -1,5 +1,9 @@
 'use strict';
 
+/* =========================
+   МОБИЛЬНОЕ МЕНЮ
+========================= */
+
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const header = document.querySelector('.site-header');
@@ -55,6 +59,11 @@ desktopMedia.addEventListener?.('change', (event) => {
     }
 });
 
+
+/* =========================
+   ТЕКУЩИЙ ГОД В ПОДВАЛЕ
+========================= */
+
 const yearElement = document.querySelector('#year');
 
 if (yearElement) {
@@ -74,13 +83,39 @@ const photoMap = {
 
     ensemble: './assets/ensemble/duo.png',
 
-    show1: './assets/show/gr1.JPG',
-    show2: './assets/show/gr2.JPG',
+    show1: './assets/gallery/ens9.png',
+    show2: './assets/gallery/ens15.png',
+    
+    // ансамбль
+    gallery1: './assets/gallery/ens1.png',
+    gallery2: './assets/gallery/ens2.png',
+    gallery3: './assets/gallery/ens3.png',
+    gallery4: './assets/gallery/ens4.png',
+    gallery5: './assets/gallery/ens5.png',
+    gallery6: './assets/gallery/ens6.png',
+    gallery7: './assets/gallery/ens7.png',
+    gallery8: './assets/gallery/ens8.png',
 
-    gallery1: './assets/gallery/ph1.JPG',
-    gallery2: './assets/gallery/ph2.PNG',
-    gallery3: './assets/gallery/ph3.JPG',
-    gallery4: './assets/gallery/ph4.JPG'
+    // шоу-группа
+    gallery9: './assets/gallery/ens9.png',
+    gallery10: './assets/gallery/ens10.png',
+    gallery11: './assets/gallery/ens11.png',
+    gallery12: './assets/gallery/ens12.png',
+    gallery13: './assets/gallery/ens13.png',
+    gallery14: './assets/gallery/ens14.png',
+    gallery15: './assets/gallery/ens15.png',
+    gallery16: './assets/gallery/ens16.png',
+
+
+    // школа
+    gallery17: './assets/gallery/ens17.png',
+    gallery18: './assets/gallery/ens18.png',
+    gallery19: './assets/gallery/ens19.png',
+    gallery20: './assets/gallery/ens20.png',
+    gallery21: './assets/gallery/ens21.png',
+    gallery22: './assets/gallery/ens22.png',
+    gallery23: './assets/gallery/ens23.png',
+    gallery24: './assets/gallery/ens24.png',
 };
 
 function applyPhoto(element, photoKey) {
@@ -98,6 +133,10 @@ document.querySelectorAll('[data-photo]').forEach((element) => {
     applyPhoto(element, element.dataset.photo);
 });
 
+
+/* =========================
+   ПОЯВЛЕНИЕ ЭЛЕМЕНТОВ ПРИ ПРОКРУТКЕ
+========================= */
 
 const revealTargets = document.querySelectorAll(
     '.section-index, .about-copy, .teacher-card, .group-card, ' +
@@ -126,6 +165,12 @@ if ('IntersectionObserver' in window) {
         element.classList.add('in-view');
     });
 }
+
+
+
+/* =========================
+   ЧТЕНИЕ СЕКЦИИ «О НАС»
+========================= */
 
 const aboutReader = document.querySelector('[data-about-reader]');
 
@@ -207,10 +252,15 @@ if (aboutReader) {
     });
 }
 
+
+/* =========================
+   ДАННЫЕ ПРЕПОДАВАТЕЛЕЙ
+========================= */
+
 const teachers = {
     'teacher-1': {
         name: 'Давуд Закирзаде',
-        bio: 'Главный хореограф студии KAVKAZ. Здесь можно разместить историю, танцевальный опыт, направления и личный подход преподавателя.',
+        bio: 'Кавказский танец — это огонь, который живёт в каждом из нас, и я горжусь, что вы выбрали именно наш путь. Помните: на сцене и в зале вы представляете не только себя, но и культуру целого региона. Ставьте перед собой самые смелые цели и тренируйтесь с полной отдачей. И главное — никогда не теряйте искру в глазах, ведь мы вместе создаём красоту, которая трогает сердца. Вперёд, к новым вершинам и безупречным движениям! Жду всех на тренировках.',
         photo: 'teacher1Detail'
     },
 
@@ -226,6 +276,11 @@ const teachers = {
         photo: 'teacher3Detail'
     }
 };
+
+
+/* =========================
+   МОДАЛЬНОЕ ОКНО ПРЕПОДАВАТЕЛЯ
+========================= */
 
 const dialog = document.querySelector('#teacherDialog');
 const dialogName = document.querySelector('#dialogName');
@@ -301,6 +356,10 @@ dialogCta?.addEventListener('click', () => {
 });
 
 
+/* =========================
+   КАРУСЕЛЬ ОТЗЫВОВ
+========================= */
+
 const quotes = [
     '«Профессионализм, энергия и эмоции, которые остаются с тобой»',
     '«Команда, в которой поддерживают и помогают расти»',
@@ -340,11 +399,15 @@ document.querySelector('#nextQuote')?.addEventListener('click', () => {
 renderQuote();
 
 
-/* ФИЛЬТР ГАЛЕРЕИ */
+/* =========================
+   ФИЛЬТР ГАЛЕРЕИ
+========================= */
 
 const galleryTabs = document.querySelector('.gallery-tabs');
+
 const galleryButtons =
     galleryTabs?.querySelectorAll('button[data-filter]') ?? [];
+
 const galleryPhotos = document.querySelectorAll('.gallery-photo');
 
 function setGalleryFilter(activeButton) {
