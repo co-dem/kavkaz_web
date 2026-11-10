@@ -3112,3 +3112,40 @@ footer .made-by:hover {
   opacity: 1;
   color: #d98c9b;
 }
+
+/* ===== FIX: TEACHER DIALOG ON MOBILE ===== */
+
+dialog#teacherDialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+
+    width: calc(100vw - 28px);
+    max-width: 520px;
+
+    max-height: calc(100dvh - 28px);
+    overflow-y: auto;
+
+    box-sizing: border-box;
+}
+
+dialog#teacherDialog[open] {
+    display: block;
+}
+
+@media (max-width: 760px) {
+    dialog#teacherDialog {
+        width: calc(100vw - 28px);
+        max-height: 88dvh;
+        padding: 64px 20px 26px;
+        overflow-y: auto;
+    }
+
+    .teacher-dialog-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .dialog-photo {
+        aspect-ratio: 3 / 2;
+    }
+}
