@@ -16,7 +16,7 @@
 }
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 84px;
+    
 }
 body {
     margin: 0;
@@ -40,13 +40,13 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px clamp(20px,5vw,72px);
+    
     background: linear-gradient(180deg,rgba(17,16,15,.92),rgba(17,16,15,.25));
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .logo {
-    font-size: 20px;
+    
     letter-spacing: .22em;
     font-weight: 800;
     display: flex;
@@ -54,15 +54,15 @@ button {
     gap: 4px;
 }
 .logo span {
-    font-size: 8px;
+    
     letter-spacing: .16em;
     color: var(--muted);
     font-weight: 600;
 }
 .nav {
     display: flex;
-    gap: clamp(12px,2vw,28px);
-    font-size: 10px;
+    
+    
     text-transform: uppercase;
     letter-spacing: .08em;
 }
@@ -85,13 +85,13 @@ button {
     cursor: pointer;
 }
 .hero {
-    min-height: 100svh;
+    
     position: relative;
     isolation: isolate;
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding: 130px clamp(24px,7vw,100px) 90px;
+    
 }
 .hero-bg,.hero-shade {
     position: absolute;
@@ -115,7 +115,7 @@ button {
     background: linear-gradient(90deg,rgba(8,8,8,.9),rgba(8,8,8,.58) 45%,rgba(8,8,8,.12)),linear-gradient(0deg,rgba(8,8,8,.75),transparent 30%);
 }
 .hero-content {
-    width: min(800px,100%);
+    
     position: relative;
     z-index: 2;
 }
@@ -131,24 +131,24 @@ button {
     font-size: clamp(76px,15.4vw,220px);
     line-height: .82;
     letter-spacing: -.075em;
-    margin: 26px 0 34px;
+    
     font-weight: 800;
 }
 .hero-lead {
-    font-size: clamp(17px,2vw,25px);
-    line-height: 1.55;
+    
+    
     color: #e5ddd1;
     margin: 0 0 32px;
 }
 .button {
     display: inline-flex;
     align-items: center;
-    gap: 34px;
+    
     background: var(--burgundy);
     color: white;
-    padding: 17px 22px;
-    font-size: 11px;
-    letter-spacing: .06em;
+    
+    
+    
     text-transform: uppercase;
     font-weight: 800;
     border: 1px solid var(--burgundy);
@@ -164,18 +164,18 @@ button {
 }
 .hero-vertical {
     position: absolute;
-    right: 36px;
+    
     top: 44%;
     writing-mode: vertical-rl;
     letter-spacing: .2em;
-    font-size: 9px;
+    
     color: #e0b5b5;
 }
 .scroll-cue {
     position: absolute;
-    bottom: 28px;
-    left: clamp(24px,7vw,100px);
-    font-size: 9px;
+    
+    
+    
     letter-spacing: .16em;
     color: var(--muted);
     display: flex;
@@ -197,7 +197,7 @@ button {
     pointer-events: none;
 }
 .section {
-    padding: 100px max(24px,calc((100vw - var(--max))/2));
+    
     position: relative;
     overflow: hidden;
 }
@@ -211,15 +211,15 @@ button {
 }
 .section-index {
     color: var(--burgundy);
-    margin-bottom: 28px;
+    
 }
 .dark .section-index {
     color: #c28a8f;
 }
 h2 {
-    font-size: clamp(38px,5.4vw,76px);
-    line-height: 1.03;
-    letter-spacing: -.055em;
+    
+    
+    
     margin: 0 0 28px;
     font-weight: 800;
 }
@@ -232,9 +232,9 @@ h2 em {
 }
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(30px,6vw,90px);
-    align-items: center;
+    
+    
+    
 }
 .photo {
     position: relative;
@@ -269,7 +269,7 @@ h2 em {
     opacity: 0;
 }
 .photo-tall {
-    min-height: 500px;
+    
 }
 .about-copy>p:not(.eyebrow) {
     font-size: 15px;
@@ -279,10 +279,10 @@ h2 em {
 }
 .stats {
     display: flex;
-    gap: 32px;
-    margin-top: 36px;
+    
+    
     border-top: 1px solid rgba(0,0,0,.16);
-    padding-top: 24px;
+    
 }
 .stats div {
     display: flex;
@@ -290,18 +290,18 @@ h2 em {
     gap: 7px;
 }
 .stats b {
-    font-size: 29px;
+    
 }
 .stats span {
-    font-size: 10px;
+    
     color: #756c63;
 }
 .section-head {
     display: flex;
-    align-items: end;
+    
     justify-content: space-between;
-    gap: 30px;
-    margin-bottom: 42px;
+    
+    
 }
 .section-head>p {
     max-width: 300px;
@@ -311,13 +311,13 @@ h2 em {
 }
 .teacher-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 18px;
+    
+    
 }
 .teacher-card {
     padding: 0;
-    background: transparent;
-    border: 1px solid var(--line);
+    
+    
     text-align: left;
     color: inherit;
     cursor: pointer;
@@ -328,16 +328,16 @@ h2 em {
     border-color: #8d2b40;
 }
 .teacher-photo {
-    height: 320px;
+    
 }
 .teacher-meta {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    
 }
 .teacher-meta h3 {
-    font-size: 17px;
+    
     margin: 0 0 8px;
 }
 .teacher-meta p,.hint {
@@ -350,29 +350,29 @@ h2 em {
     font-size: 22px;
 }
 .hint {
-    margin-top: 20px;
+    
     line-height: 1.7;
 }
 .groups h2 {
-    margin-bottom: 44px;
+    
 }
 .group-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr .9fr;
-    gap: 14px;
+    
+    
+    
 }
 .group-card {
-    padding: 28px;
-    background: rgba(255,255,255,.56);
-    border: 1px solid rgba(0,0,0,.09);
+    
+    
+    
 }
 .group-top {
     display: flex;
     justify-content: space-between;
-    color: var(--burgundy);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: .14em;
+    
+    
+    
+    
 }
 .group-symbol {
     font-size: 28px;
@@ -396,8 +396,8 @@ h2 em {
 .group-card li {
     counter-increment: level;
     border-top: 1px solid rgba(0,0,0,.12);
-    padding: 12px 0;
-    font-size: 12px;
+    
+    
 }
 .group-card li::before {
     content: "0" counter(level) "  ";
@@ -433,7 +433,7 @@ h2 em {
 .ensemble {
     background: #0b0b0b;
     isolation: isolate;
-    min-height: 920px;
+    
 }
 .ensemble-backdrop {
     position: absolute;
@@ -455,7 +455,7 @@ h2 em {
     background: linear-gradient(90deg,#0b0b0b 0%,rgba(11,11,11,.94) 33%,rgba(11,11,11,.35) 75%),linear-gradient(0deg,#0b0b0b 0%,transparent 50%);
 }
 .ensemble-content {
-    max-width: 850px;
+    
     position: relative;
 }
 .ensemble h2 {
@@ -463,16 +463,16 @@ h2 em {
     margin: 22px 0 30px;
 }
 .ensemble-intro {
-    max-width: 600px;
+    
     color: #c8c0b6;
-    line-height: 1.85;
-    font-size: 15px;
+    
+    
     margin-bottom: 30px;
 }
 .ensemble-stamp {
     position: absolute;
-    right: -350px;
-    top: 100px;
+    
+    
     border: 1px solid rgba(205,111,127,.6);
     width: 150px;
     height: 150px;
@@ -492,70 +492,70 @@ h2 em {
 }
 .ensemble-bottom {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 30px;
-    margin-top: 100px;
-    padding-top: 36px;
+    
+    
+    
+    
     border-top: 1px solid var(--line);
 }
 .ensemble-bottom span {
     color: #c56b7b;
-    font-size: 12px;
+    
 }
 .ensemble-bottom h3 {
-    font-size: 20px;
+    
     margin: 14px 0;
 }
 .ensemble-bottom p {
-    font-size: 12px;
-    line-height: 1.7;
+    
+    
     color: var(--muted);
 }
 .ensemble-teachers {
     display: flex;
-    gap: 25px;
+    
     align-items: center;
-    margin-top: 42px;
+    
     color: var(--muted);
-    font-size: 10px;
+    
     letter-spacing: .1em;
 }
 .ensemble-teachers b {
     color: var(--white);
     letter-spacing: 0;
-    font-size: 12px;
+    
 }
 .show-grid {
     display: grid;
-    grid-template-columns: .85fr 1.15fr;
-    gap: 60px;
-    align-items: center;
+    
+    
+    
 }
 .show-grid h2 {
     font-size: clamp(35px,5vw,68px);
 }
 .show-grid p {
     max-width: 440px;
-    line-height: 1.8;
+    
     color: #61574f;
-    font-size: 14px;
+    
     margin: 24px 0 28px;
 }
 .show-photos {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    
 }
 .show-photos .photo {
-    height: 360px;
+    
 }
 .show-photos .photo:first-child {
-    transform: translateY(28px);
+    
 }
 .testimonials {
-    margin-top: 80px;
+    
     border-top: 1px solid rgba(0,0,0,.16);
-    padding-top: 35px;
+    
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -564,33 +564,33 @@ h2 em {
     max-width: 700px;
 }
 .quote {
-    font-size: clamp(20px,2.6vw,34px);
-    line-height: 1.4;
+    
+    
     letter-spacing: -.03em;
 }
 .testimonials .hint {
-    max-width: 230px;
+    
     color: #71675e;
 }
 .carousel-controls {
     display: flex;
     align-items: center;
-    gap: 20px;
+    
     color: var(--burgundy);
-    font-size: 10px;
+    
 }
 .carousel-controls button {
     border: 1px solid rgba(0,0,0,.25);
     background: transparent;
-    width: 38px;
-    height: 38px;
+    
+    
     cursor: pointer;
 }
 .gallery {
     padding-bottom: 120px;
 }
 .gallery .section-head {
-    margin-bottom: 24px;
+    
 }
 .gallery .section-head h2 {
     margin: 12px 0 0;
@@ -600,17 +600,17 @@ h2 em {
 }
 .gallery-tabs {
     display: flex;
-    gap: 8px;
+    
     flex-wrap: wrap;
-    margin: 24px 0 28px;
+    
 }
 .gallery-tabs button {
     background: transparent;
     border: 1px solid var(--line);
     color: var(--muted);
-    padding: 11px 16px;
-    font-size: 10px;
-    letter-spacing: .06em;
+    
+    
+    
     text-transform: uppercase;
     cursor: pointer;
 }
@@ -621,16 +621,16 @@ h2 em {
 }
 .gallery-track {
     display: grid;
-    grid-template-columns: repeat(4,minmax(240px,1fr));
-    gap: 14px;
-    overflow-x: auto;
+    
+    
+    
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
     scrollbar-color: var(--burgundy) transparent;
     padding-bottom: 12px;
 }
 .gallery-photo {
-    height: 280px;
+    
     scroll-snap-align: start;
 }
 .gallery-photo:nth-child(2) {
@@ -644,11 +644,11 @@ h2 em {
 }
 .faq-grid {
     display: grid;
-    grid-template-columns: .8fr 1.2fr;
-    gap: 70px;
+    
+    
 }
 .faq-grid h2 {
-    font-size: clamp(38px,4.5vw,64px);
+    
 }
 .faq-list details {
     border-bottom: 1px solid rgba(0,0,0,.18);
@@ -657,10 +657,10 @@ h2 em {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    gap: 18px;
-    padding: 24px 0;
+    
+    
     cursor: pointer;
-    font-size: 14px;
+    
     font-weight: 800;
 }
 .faq-list summary::-webkit-details-marker {
@@ -672,27 +672,27 @@ h2 em {
     transition: transform .2s;
 }
 .faq-list details[open] summary span {
-    transform: rotate(45deg);
+    
 }
 .faq-list details p {
-    font-size: 13px;
-    line-height: 1.8;
+    
+    
     color: #61574f;
     max-width: 600px;
     padding: 0 25px 20px 0;
-    margin: 0;
+    
 }
 .contact {
     padding-bottom: 30px;
 }
 .contact-grid {
     display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap: 80px;
-    padding: 25px 0 100px;
+    
+    
+    
 }
 .contact h2 {
-    font-size: clamp(48px,7vw,96px);
+    
     margin-top: 24px;
 }
 .contact-grid>div:first-child>p:not(.eyebrow) {
@@ -708,14 +708,14 @@ h2 em {
 .social-list a {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
-    padding: 22px 0;
+    
+    
     border-bottom: 1px solid var(--line);
-    font-size: 12px;
+    
 }
 .social-list a span {
     color: var(--muted);
-    font-size: 10px;
+    
     letter-spacing: .14em;
 }
 .social-list a b {
@@ -726,12 +726,12 @@ h2 em {
 }
 footer {
     border-top: 1px solid var(--line);
-    padding: 26px 0 10px;
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: var(--muted);
-    font-size: 9px;
+    
     letter-spacing: .1em;
 }
 footer .logo {
@@ -755,14 +755,14 @@ dialog h2 {
     margin-top: 18px;
 }
 .teacher-dialog-layout {
-    display: grid;
-    grid-template-columns: 190px 1fr;
-    gap: 28px;
-    align-items: center;
+    
+    
+    
+    
 }
 .dialog-photo {
-    height: 250px;
-    min-height: 250px;
+    
+    
 }
 .teacher-dialog-copy>p:not(.eyebrow) {
     font-size: 13px;
@@ -790,13 +790,13 @@ dialog h2 {
     }
 }
 .dialog-close {
-    position: absolute;
-    right: 18px;
-    top: 12px;
-    background: none;
-    border: 0;
+    
+    
+    
+    
+    
     font-size: 30px;
-    cursor: pointer;
+    
 }
 .reveal {
     opacity: 0;
@@ -895,13 +895,13 @@ dialog h2 {
     color: var(--ink);
 }
 .dialog-close {
-    display: flex;
+    
     line-height: 0;
-    padding: 6px;
+    
 }
 .dialog-close .icon {
-    width: 26px;
-    height: 26px;
+    
+    
 }
 .teacher-meta>b .icon {
     width: 22px;
@@ -996,7 +996,7 @@ dialog h2 {
     .nav a {
         padding: 14px 0;
         border-bottom: 1px solid rgba(255,255,255,.13);
-        font-size: clamp(20px,6vw,34px);
+        
         font-weight: 800;
         letter-spacing: -.035em;
         text-transform: none;
@@ -1384,8 +1384,8 @@ body:has(#teacherDialog[open]) {
    Этот блок переопределяет отдельные правила выше.
 ========================================================== */
 :root {
-    --content-width: 1240px;
-    --section-space: clamp(76px, 8vw, 116px);
+    
+    
     --text-main: 16px;
     --text-small: 13px;
 }
@@ -1400,7 +1400,7 @@ body {
 }
 /* Общая ширина и вертикальный ритм секций */
 .section {
-    padding: var(--section-space) max(28px, calc((100vw - var(--content-width)) / 2));
+    
 }
 .section-index {
     margin-bottom: 24px;
@@ -1475,19 +1475,19 @@ h2 {
 }
 /* О студии: изображение и текст выравниваются по одной оси */
 .about-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, .92fr);
-    gap: clamp(42px, 6vw, 88px);
+    
+    
 }
 .photo-tall {
-    min-height: 540px;
-    height: 100%;
+    
+    
 }
 .about-copy {
-    max-width: 590px;
-    padding: 18px 0;
+    
+    
 }
 .about-copy h2 {
-    max-width: 620px;
+    
 }
 .about-copy > p:not(.eyebrow) {
     font-size: 16px;
@@ -1508,37 +1508,37 @@ h2 {
 }
 /* Общие заголовки секций */
 .section-head {
-    align-items: end;
-    margin-bottom: 46px;
+    
+    
 }
 .section-head > p {
-    max-width: 340px;
-    font-size: 15px;
-    line-height: 1.75;
+    
+    
+    
 }
 /* Преподаватели */
 .teacher-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-    align-items: stretch;
+    
+    
+    
 }
 .teacher-card {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    height: 100%;
+    
+    
+    
+    
 }
 .teacher-photo {
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 4 / 4.6;
+    
+    
+    
+    
 }
 .teacher-meta {
-    flex: 1;
-    min-height: 104px;
-    padding: 20px 22px;
-    gap: 14px;
+    
+    
+    
+    
 }
 .teacher-meta h3 {
     font-size: 18px;
@@ -1554,20 +1554,20 @@ h2 {
 }
 /* Направления и группы */
 .groups h2 {
-    margin-bottom: 42px;
+    
 }
 .group-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(260px, .9fr);
-    gap: 18px;
-    align-items: stretch;
+    
+    
+    
 }
 .group-card,
 .schedule-card {
-    min-height: 100%;
+    
     padding: clamp(24px, 2.5vw, 34px);
 }
 .group-top {
-    font-size: 12px;
+    
     line-height: 1.5;
 }
 .group-card h3,
@@ -1611,8 +1611,8 @@ h2 {
     top: 110px;
 }
 .ensemble-bottom {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(22px, 4vw, 54px);
+    
+    
     margin-top: 84px;
     padding-top: 34px;
 }
@@ -1638,24 +1638,24 @@ h2 {
 }
 /* Шоу-группа и отзывы */
 .show-grid {
-    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-    gap: clamp(42px, 6vw, 82px);
+    
+    
 }
 .show-grid > div:first-child {
-    max-width: 540px;
+    
 }
 .show-grid p {
     font-size: 16px;
     line-height: 1.8;
 }
 .show-photos {
-    gap: 16px;
-    align-items: center;
+    
+    
 }
 .show-photos .photo {
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 3 / 4;
+    
+    
+    
 }
 .show-photos .photo:first-child {
     transform: translateY(20px);
@@ -1710,9 +1710,9 @@ h2 {
 }
 /* Вопросы и ответы */
 .faq-grid {
-    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
-    gap: clamp(42px, 7vw, 100px);
-    align-items: start;
+    
+    
+    
 }
 .faq-grid h2 {
     font-size: clamp(40px, 4.5vw, 64px);
@@ -1729,9 +1729,6 @@ h2 {
 }
 /* Контакты и футер */
 .contact-grid {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
-    gap: clamp(48px, 8vw, 110px);
-    align-items: center;
     padding: 28px 0 100px;
 }
 .contact h2 {
@@ -2321,9 +2318,9 @@ footer {
     gap: 14px;
 }
 .group-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(260px, .9fr);
-    align-items: stretch;
-    gap: 18px;
+    
+    
+    
 }
 .group-card,
 .schedule-card {
@@ -2530,7 +2527,7 @@ footer {
     flex-direction: column;
     padding: clamp(24px, 3vw, 38px);
     background: rgba(255, 255, 255, .48);
-    border: 1px solid rgba(35, 26, 21, .12);
+    
 }
 .group-top {
     align-items: center;
@@ -2538,11 +2535,11 @@ footer {
 }
 .group-symbol {
     display: grid;
-    width: 38px;
-    height: 38px;
+    
+    
     place-items: center;
     border: 1px solid rgba(118, 21, 44, .2);
-    border-radius: 50%;
+    
     color: var(--burgundy);
 }
 .group-symbol .icon {
@@ -2554,7 +2551,7 @@ footer {
     color: var(--ink);
     font-size: clamp(25px, 2.4vw, 32px);
     line-height: 1.2;
-    letter-spacing: -.045em;
+    
 }
 .group-card .group-description {
     min-height: 3.4em;
@@ -2585,8 +2582,8 @@ footer {
 .group-levels li {
     min-width: 0;
     padding: 10px 9px;
-    background: rgba(118, 21, 44, .055);
-    border: 1px solid rgba(118, 21, 44, .1);
+    
+    
     color: #514740;
     font-size: 11px;
     line-height: 1.4;
@@ -2605,7 +2602,7 @@ footer {
 .group-pricing {
     margin-top: 28px;
     padding-top: 22px;
-    border-top: 1px solid rgba(35, 26, 21, .16);
+    
 }
 .group-pricing-title {
     display: flex;
@@ -2650,7 +2647,7 @@ footer {
     gap: 14px;
     margin-top: 10px;
     padding: 14px 16px;
-    background: rgba(118, 21, 44, .075);
+    
     border-left: 2px solid var(--burgundy);
     color: #514740;
     font-size: 13px;
@@ -3113,39 +3110,98 @@ footer .made-by:hover {
   color: #d98c9b;
 }
 
-/* ===== FIX: TEACHER DIALOG ON MOBILE ===== */
-
+/* ===== ФИНАЛЬНАЯ АДАПТАЦИЯ ОКНА ПРЕПОДАВАТЕЛЯ ===== */
+/* ПК: фото слева, текст справа. Фото горизонтальное. */
 dialog#teacherDialog {
     position: fixed;
     inset: 0;
     margin: auto;
-
-    width: calc(100vw - 28px);
-    max-width: 520px;
-
-    max-height: calc(100dvh - 28px);
-    overflow-y: auto;
-
     box-sizing: border-box;
+    width: min(1000px, calc(100vw - 48px));
+    max-width: 1000px;
+    max-height: 88dvh;
+    padding: 42px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid #6d2637;
+    background: var(--cream);
+    color: var(--ink);
+    box-shadow: 0 30px 100px #0008;
 }
 
-dialog#teacherDialog[open] {
+dialog#teacherDialog::backdrop {
+    background: rgba(0, 0, 0, .72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+dialog#teacherDialog .teacher-dialog-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 44%) minmax(0, 1fr);
+    align-items: start;
+    gap: 32px;
+}
+
+dialog#teacherDialog .dialog-photo {
     display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+dialog#teacherDialog .teacher-dialog-copy {
+    min-width: 0;
+}
+
+dialog#teacherDialog .teacher-dialog-copy h2 {
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.1;
+    overflow-wrap: break-word;
 }
 
 @media (max-width: 760px) {
     dialog#teacherDialog {
         width: calc(100vw - 28px);
+        max-width: 520px;
         max-height: 88dvh;
-        padding: 64px 20px 26px;
-        overflow-y: auto;
+        padding: 58px 18px 22px;
     }
 
-    .teacher-dialog-layout {
-        grid-template-columns: 1fr;
+    dialog#teacherDialog .teacher-dialog-layout {
+        /* На телефоне фото располагается сверху, текст — под ним. */
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
     }
 
-    .dialog-photo {
-        aspect-ratio: 3 / 2;
+    dialog#teacherDialog .dialog-photo {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+    }
+
+    dialog#teacherDialog .teacher-dialog-copy h2 {
+        font-size: clamp(26px, 7vw, 34px);
+        line-height: 1.1;
+    }
+
+    dialog#teacherDialog .teacher-dialog-copy > p:not(.eyebrow) {
+        font-size: 13px;
+        line-height: 1.65;
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    dialog#teacherDialog {
+        padding-left: 14px;
+        padding-right: 14px;
     }
 }
